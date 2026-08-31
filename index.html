@@ -62,9 +62,7 @@
     padding:calc(var(--pad) * 3.4) var(--pad) calc(var(--pad) * 1.6);
   }
   .view.on{display:flex}
-  
-  /* make a change */
-  
+
   /* ---------- index ---------- */
 
   #index{
@@ -178,6 +176,7 @@
     transition:border-color .25s ease;
   }
   .send:hover{border-bottom-color:var(--ink)}
+  .send:disabled{color:var(--quiet);cursor:default;border-bottom-color:transparent}
   .hp{position:absolute;left:-9999px}
 
   /* Pre-warms the italic face so the first hover never falls back to a
@@ -251,9 +250,12 @@
 
 <!-- ---------- contact ---------- -->
 <section class="view" id="contact">
-  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" id="form">
-    <input type="hidden" name="form-name" value="contact">
-    <p class="hp"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>
+  <form id="form">
+    <!-- Paste your Web3Forms access key between the quotes below. -->
+    <input type="hidden" name="access_key" value="f90492f0-c7c8-4b60-9846-ed2beaffe500">
+    <input type="hidden" name="subject" value="New message from rorymason.xyz">
+    <input type="hidden" name="from_name" value="rorymason.com">
+    <p class="hp"><label>Company <input name="botcheck" type="checkbox" tabindex="-1" autocomplete="off"></label></p>
 
     <div class="field">
       <label for="f-name">Your name</label>
@@ -382,19 +384,29 @@ document.addEventListener('keydown', (e) => {
 /* contact form — posts to Netlify without leaving the page */
 const form = document.getElementById('form');
 const status = document.getElementById('status');
+const send = form.querySelector('.send');
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  status.textContent = 'Sending…';
+  send.disabled = true;
+  status.textContent = 'Sending\u2026';
   try{
-    await fetch('/', {
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString()
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
     });
-    form.reset();
-    status.textContent = 'Message sent. I\u2019ll reply soon.';
+    const data = await res.json();
+    if (res.ok && data.success){
+      form.reset();
+      status.textContent = 'Message sent. I\u2019ll reply soon.';
+    } else {
+      status.textContent = 'That didn\u2019t send. Try again, or email me directly.';
+    }
   } catch {
-    status.textContent = 'That didn\u2019t send. Try again, or reload the page.';
+    status.textContent = 'That didn\u2019t send. Check your connection and try again.';
+  } finally {
+    send.disabled = false;
   }
 });
 </script>
