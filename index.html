@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rory Mason</title>
+<meta name="description" content="Photographs by Rory Mason, an Australian-British designer and musician living in Berlin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;1,6..72,200;1,6..72,300&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#FFFFFF;
+    --ink:#171512;
+    --quiet:#A3A099;
+    --hair:#E6E4E0;
+
+    --word:"Newsreader",Georgia,serif;
+    --util:"IBM Plex Mono",ui-monospace,monospace;
+
+    --pad:clamp(1.5rem,5vw,4rem);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    min-height:100dvh;
+    background:var(--page);
+    color:var(--ink);
+    font-family:var(--util);
+    font-weight:300;
+    font-size:.75rem;
+    letter-spacing:.02em;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+  a{color:inherit}
+  :focus-visible{outline:1px solid var(--ink);outline-offset:6px}
+
+  /* ---------- persistent frame ---------- */
+
+  .corner{
+    position:fixed;
+    top:var(--pad);
+    right:var(--pad);
+    z-index:30;
+    color:var(--quiet);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .4s ease;
+  }
+  .corner.on{opacity:1;pointer-events:auto}
+
+  /* ---------- view switching ---------- */
+
+  .view{
+    display:none;
+    min-height:100dvh;
+    padding:calc(var(--pad) * 3.4) var(--pad) calc(var(--pad) * 1.6);
+  }
+  .view.on{display:flex}
+
+  /* ---------- index ---------- */
+
+  #index{
+    flex-direction:column;
+    justify-content:space-between;
+    gap:clamp(3rem,10vh,7rem);
+  }
+
+  .words{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:clamp(.1rem,.6vh,.4rem);
+  }
+  .word{
+    font-family:var(--word);
+    font-weight:200;
+    font-size:clamp(2.4rem,7.5vw,5.5rem);
+    line-height:1.14;
+    letter-spacing:-.015em;
+    display:block;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  }
+  /* the one idea: roman turns italic as you reach for it */
+  .word:hover,.word:focus-visible{font-style:italic;transform:translateX(.35em)}
+
+  .foot{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:.5rem 2rem;
+    color:var(--quiet);
+  }
+  .foot button,.foot a{text-decoration:none;border-bottom:1px solid transparent;transition:color .25s ease,border-color .25s ease}
+  .foot button:hover,.foot a:hover{color:var(--ink);border-bottom-color:var(--hair)}
+
+  /* ---------- photograph ---------- */
+
+  #photo{
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .plate{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    max-width:min(1000px,88vw);
+    max-height:74dvh;
+  }
+  .plate img{
+    max-height:74dvh;
+    width:auto;
+    opacity:0;
+    transition:opacity .55s ease;
+  }
+  .plate img.shown{opacity:1}
+
+  .plate__empty{
+    display:none;
+    color:var(--quiet);
+    text-align:center;
+    max-width:32ch;
+    line-height:1.9;
+  }
+  .plate__empty.on{display:block}
+
+  .under{
+    margin-top:1.5rem;
+    color:var(--quiet);
+    text-align:center;
+    min-height:1.75em;
+  }
+
+  /* ---------- about + contact ---------- */
+
+  #about,#contact{
+    flex-direction:column;
+    justify-content:center;
+    max-width:60ch;
+  }
+  .prose{
+    font-family:var(--word);
+    font-weight:200;
+    font-size:clamp(1.4rem,3vw,2.15rem);
+    line-height:1.5;
+    letter-spacing:-.005em;
+    margin:0 0 clamp(2rem,6vh,3.25rem);
+  }
+
+  form{display:flex;flex-direction:column;gap:1.5rem;max-width:34rem}
+  .field{display:flex;flex-direction:column;gap:.5rem}
+  label{color:var(--quiet)}
+  input,textarea{
+    font:inherit;
+    color:var(--ink);
+    background:none;
+    border:0;
+    border-bottom:1px solid var(--hair);
+    padding:.5rem 0;
+    border-radius:0;
+    transition:border-color .25s ease;
+  }
+  input:focus,textarea:focus{outline:none;border-bottom-color:var(--ink)}
+  textarea{resize:vertical;min-height:6rem}
+  .send{
+    align-self:flex-start;
+    border-bottom:1px solid var(--hair);
+    padding-bottom:.15rem;
+    transition:border-color .25s ease;
+  }
+  .send:hover{border-bottom-color:var(--ink)}
+  .hp{position:absolute;left:-9999px}
+
+  /* Pre-warms the italic face so the first hover never falls back to a
+     synthesised (bold-looking) slant while the font is still downloading. */
+  .preload-italic{
+    position:absolute;
+    width:1px;height:1px;
+    overflow:hidden;
+    clip-path:inset(50%);
+    white-space:nowrap;
+    font-family:var(--word);
+    font-style:italic;
+    font-weight:200;
+  }
+  .word{font-synthesis:none;-webkit-font-synthesis:none}
+  .status{color:var(--quiet);min-height:1.75em}
+
+  .back{
+    margin-top:clamp(2.5rem,7vh,4rem);
+    align-self:flex-start;
+    color:var(--quiet);
+    border-bottom:1px solid transparent;
+    transition:color .25s ease,border-color .25s ease;
+  }
+  .back:hover{color:var(--ink);border-bottom-color:var(--hair)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
+    .word:hover,.word:focus-visible{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="corner" id="corner" aria-live="polite"></div>
+
+<!-- ---------- index ---------- -->
+<span class="preload-italic" aria-hidden="true">Beijing England Lines Shapes Indoors Outdoors</span>
+
+<section class="view on" id="index">
+  <nav class="words" aria-label="Photographs by place and subject">
+    <button class="word" data-set="beijing">Beijing</button>
+    <button class="word" data-set="england">England</button>
+    <button class="word" data-set="lines">Lines</button>
+    <button class="word" data-set="shapes">Shapes</button>
+    <button class="word" data-set="indoors">Indoors</button>
+    <button class="word" data-set="outdoors">Outdoors</button>
+  </nav>
+
+  <div class="foot">
+    <button data-go="about">About</button>
+    <button data-go="contact">Contact</button>
+    <span>© 2026</span>
+  </div>
+</section>
+
+<!-- ---------- photograph ---------- -->
+<section class="view" id="photo" aria-live="polite">
+  <div class="plate">
+    <img id="shot" src="" alt="">
+    <p class="plate__empty" id="empty">No photographs in this set yet. Add files to <code>images/</code> and list them in the manifest at the bottom of this file.</p>
+  </div>
+  <p class="under" id="under"></p>
+</section>
+
+<!-- ---------- about ---------- -->
+<section class="view" id="about">
+  <p class="prose">Rory Mason is an Australian-British designer and musician currently living in Berlin.</p>
+  <button class="back" data-go="index">Back</button>
+</section>
+
+<!-- ---------- contact ---------- -->
+<section class="view" id="contact">
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company" id="form">
+    <input type="hidden" name="form-name" value="contact">
+    <p class="hp"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>
+
+    <div class="field">
+      <label for="f-name">Your name</label>
+      <input id="f-name" name="name" type="text" required autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="f-email">Email</label>
+      <input id="f-email" name="email" type="email" required autocomplete="email">
+    </div>
+    <div class="field">
+      <label for="f-msg">Message</label>
+      <textarea id="f-msg" name="message" required></textarea>
+    </div>
+
+    <button class="send" type="submit">Send message</button>
+    <p class="status" id="status" role="status"></p>
+  </form>
+
+  <button class="back" data-go="index">Back</button>
+</section>
+
+<script>
+/* ------------------------------------------------------------------
+   MANIFEST — the only part you need to edit when adding photographs.
+   Put files in an images/ folder and list their filenames here.
+   Optional caption: use { src: "...", caption: "..." } instead of a
+   plain string. Leave a set empty and it simply shows a message.
+------------------------------------------------------------------ */
+const SETS = {
+  beijing:  ["images/1.jpg","images/5.jpg","images/6.jpg","images/7.jpg","images/10.jpg"],
+  england:  ["images/5.jpg","images/8.jpg","images/9.jpg","images/11.jpg"],
+  lines:    ["images/7.jpg","images/8.jpg","images/16.jpg"],
+  shapes:   ["images/2.jpg","images/14.jpg","images/17.jpg"],
+  indoors:  ["images/2.jpg","images/3.jpg","images/13.jpg","images/15.jpg"],
+  outdoors: ["images/4.jpg","images/11.jpg","images/12.jpg"]
+};
+
+const views  = document.querySelectorAll('.view');
+const corner = document.getElementById('corner');
+const shot   = document.getElementById('shot');
+const empty  = document.getElementById('empty');
+const under  = document.getElementById('under');
+
+let current = null;   // active set name
+let bag = [];         // shuffled queue, so nothing repeats until all are seen
+
+function show(id){
+  views.forEach(v => v.classList.toggle('on', v.id === id));
+  const inPhoto = id === 'photo';
+  corner.classList.toggle('on', inPhoto);
+  if (!inPhoto) { current = null; }
+  window.scrollTo(0,0);
+}
+
+function label(item){ return typeof item === 'string' ? '' : (item.caption || ''); }
+function src(item){ return typeof item === 'string' ? item : item.src; }
+
+function openSet(name){
+  current = name;
+  bag = [];
+  corner.textContent = name.charAt(0).toUpperCase() + name.slice(1) + '  ·  Back';
+  show('photo');
+  next();
+}
+
+function next(){
+  const pool = SETS[current] || [];
+  if (!pool.length){
+    shot.style.display = 'none';
+    empty.classList.add('on');
+    under.textContent = '';
+    return;
+  }
+  shot.style.display = '';
+  empty.classList.remove('on');
+
+  if (!bag.length){
+    bag = [...pool];
+    for (let i = bag.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [bag[i], bag[j]] = [bag[j], bag[i]];
+    }
+    // avoid showing the same frame twice across a reshuffle
+    if (pool.length > 1 && src(bag[0]) === shot.getAttribute('src')) bag.push(bag.shift());
+  }
+
+  const item = bag.shift();
+  shot.classList.remove('shown');
+  const load = new Image();
+  load.onload = () => {
+    shot.src = load.src;
+    shot.alt = label(item) || 'Photograph';
+    shot.classList.add('shown');
+  };
+  load.onerror = () => {
+    shot.removeAttribute('src');
+    shot.style.display = 'none';
+    empty.classList.add('on');
+  };
+  load.src = src(item);
+  under.textContent = label(item);
+}
+
+/* interactions */
+document.querySelectorAll('[data-set]').forEach(b =>
+  b.addEventListener('click', () => openSet(b.dataset.set)));
+
+document.querySelectorAll('[data-go]').forEach(b =>
+  b.addEventListener('click', (e) => { e.preventDefault(); show(b.dataset.go); }));
+
+document.getElementById('photo').addEventListener('click', (e) => {
+  if (e.target.closest('#corner')) return;
+  next();
+});
+
+corner.addEventListener('click', (e) => { e.stopPropagation(); show('index'); });
+
+document.addEventListener('keydown', (e) => {
+  const onPhoto = document.getElementById('photo').classList.contains('on');
+  if (e.key === 'Escape') show('index');
+  if (onPhoto && (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'Enter')){
+    e.preventDefault(); next();
+  }
+});
+
+/* contact form — posts to Netlify without leaving the page */
+const form = document.getElementById('form');
+const status = document.getElementById('status');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  status.textContent = 'Sending…';
+  try{
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    });
+    form.reset();
+    status.textContent = 'Message sent. I\u2019ll reply soon.';
+  } catch {
+    status.textContent = 'That didn\u2019t send. Try again, or reload the page.';
+  }
+});
+</script>
+
+</body>
+</html>
