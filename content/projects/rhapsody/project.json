@@ -1,17 +1,22 @@
 {
   "title": "Rhapsody",
   "order": 5,
-  "tags": ["brand"],
-  "format": "Identity & brand book",
+  "tags": ["brand", "strategy"],
+  "format": "Brand identity · Events app",
   "color": "peach",
-  "summary": "Identity for a service that helps people find music and culture events.",
-  "intro": "A brand for a fictional service that helps people discover music and culture events.",
+  "summary": "A brand for an app that gathers Berlin's niche music events in one place.",
+  "intro": "Rhapsody is an events app for Berlin's music scenes. The app worked, but it had never been properly branded, so I stepped back and built a brand from the ground up: audience, positioning, name, logo, colour, type and a full set of guidelines.",
   "card": {
     "style": "framed",
-    "image": { "src": "images/colour.jpg", "alt": "Rhapsody brand book page showing the Vivid Violet colour palette" }
+    "image": { "src": "images/bb-01-cover.jpg", "alt": "Cover of the Rhapsody brand guidelines: the white logo and wordmark on Vivid Violet" }
+  },
+  "hero": {
+    "style": "photo",
+    "image": { "src": "images/bb-01-cover.jpg", "alt": "Cover of the Rhapsody brand guidelines: the white logo and wordmark on Vivid Violet" }
   },
   "facts": {
-    "Role": "Brand identity and brand book",
-    "Tools": "Figma"
+    "Role": "Brand strategy and identity",
+    "Deliverables": "Positioning, name, logo, colour, type and guidelines",
+    "Tools": "FigJam, Figma"
   }
 }
