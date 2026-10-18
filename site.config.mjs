@@ -9,11 +9,11 @@ export default {
     'Rory Mason is an interaction designer in Berlin, designing research-led digital products.',
 
   // Homepage intro. The second line is shown in grey.
-  intro: 'I design research-led digital products, from the first interview to a working prototype.',
+  intro: 'I design research-led digital products, from the first interview to a tested, finished design.',
   introMuted: 'Studying Interaction Design at CODE University in Berlin, and freelancing on brand and web.',
 
   // Contact details, shown at the bottom of every page.
-  email: 'roryelmason@outlook.com',
+  email: 'rory.mason@code.berlin',
   linkedin: 'https://www.linkedin.com/in/rory-mason-b450a22aa/',
   cv: '/files/rory-mason-cv.pdf', // put the PDF in static/files/
 

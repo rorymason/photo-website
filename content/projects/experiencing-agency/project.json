@@ -1,9 +1,9 @@
 {
   "title": "Experiencing Agency",
-  "order": 3,
+  "order": 4,
   "tags": ["ux", "research"],
   "format": "Mobile app",
-  "color": "butter",
+  "color": "lavender",
   "summary": "Helping neighbourhood groups feel welcoming and easy to follow online.",
   "intro": "An app for neighbourhood action groups that helps newcomers feel welcome and keeps everyone in the loop. It grew out of two rounds of interviews and three prototypes.",
   "card": {
