@@ -1,20 +1,47 @@
 {
   "title": "Phonidex",
   "order": 1,
-  "tags": ["ux"],
-  "format": "iOS app",
+  "tags": [
+    "ux"
+  ],
+  "format": "iOS app · Working prototype",
   "color": "rose",
   "summary": "A turntable simulator that puts a DJ's deck on your iPhone. Designed and built in SwiftUI.",
   "intro": "A turntable in your pocket. Load a track from your phone and play it like you would on a real deck: scratch the platter, set cue points and ride the pitch fader.",
   "card": {
     "style": "phones",
     "images": [
-      { "src": "images/deck-placeholder.jpg", "alt": "Phonidex deck screen with the platter, cue and play buttons and pitch fader" }
+      {
+        "src": "images/deck.jpg",
+        "alt": "Phonidex deck playing a track, with the platter, waveform, pitch fader and cue and pause buttons"
+      },
+      {
+        "src": "images/waveform.jpg",
+        "alt": "Phonidex with the waveform zoomed in and the pitch display switched to percentage"
+      }
     ]
   },
   "facts": {
     "Role": "Design and development",
     "Platform": "iPhone",
-    "Built with": "SwiftUI, Xcode"
+    "Built with": "SwiftUI, Xcode",
+    "Status": "Working prototype"
+  },
+  "hero": {
+    "style": "phones",
+    "images": [
+      {
+        "src": "images/waveform.jpg",
+        "alt": "Phonidex with the waveform zoomed in and the pitch display switched to percentage"
+      },
+      {
+        "src": "images/deck.jpg",
+        "alt": "Phonidex deck playing a track, with the platter, waveform, pitch fader and cue and pause buttons"
+      },
+      {
+        "src": "images/set-bpm.jpg",
+        "alt": "Set BPM dialogue with a typed tempo of 126 and an 8-tap BPM option"
+      }
+    ]
   }
 }

@@ -15,7 +15,7 @@ export default {
   // Contact details, shown at the bottom of every page.
   email: 'roryelmason@outlook.com',
   linkedin: 'https://www.linkedin.com/in/rory-mason-b450a22aa/',
-  cv: '', // e.g. '/files/rory-mason-cv.pdf' (put the PDF in static/files/)
+  cv: '/files/rory-mason-cv.pdf', // put the PDF in static/files/
 
   // Discipline tags. Projects refer to these by their key (ux, research and so on).
   // The order here is the order of the filter buttons.
