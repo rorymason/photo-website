@@ -4,26 +4,26 @@
   "tags": ["ux", "research"],
   "format": "Mobile app",
   "color": "butter",
-  "summary": "Helping neighbourhood groups feel welcoming — and easy to follow — online.",
-  "intro": "A group space for neighbourhood action groups that makes newcomers feel welcome and keeps everyone in the loop — shaped by two rounds of interviews and three prototypes.",
+  "summary": "Helping neighbourhood groups feel welcoming and easy to follow online.",
+  "intro": "An app for neighbourhood action groups that helps newcomers feel welcome and keeps everyone in the loop. It grew out of two rounds of interviews and three prototypes.",
   "card": {
     "style": "phones",
     "images": [
-      { "src": "images/welcome.jpg", "alt": "Welcome screen summarising what changed since the last visit" },
-      { "src": "images/discussion.jpg", "alt": "Meeting discussion with named members’ comments" }
+      { "src": "images/welcome.jpg", "alt": "Welcome screen summing up what's changed since the last visit" },
+      { "src": "images/discussion.jpg", "alt": "Meeting discussion with comments from named members" }
     ]
   },
   "hero": {
     "style": "phones",
     "images": [
-      { "src": "images/welcome.jpg", "alt": "Welcome screen summarising what changed since the last visit" },
+      { "src": "images/welcome.jpg", "alt": "Welcome screen summing up what's changed since the last visit" },
       { "src": "images/meetings.jpg", "alt": "Meetings screen with topic and date filters" },
-      { "src": "images/discussion.jpg", "alt": "Meeting discussion with named members’ comments" }
+      { "src": "images/discussion.jpg", "alt": "Meeting discussion with comments from named members" }
     ]
   },
   "facts": {
-    "Role": "Solo — research, concept, prototyping and testing",
-    "Methods": "Interviews, clustering, storytelling, paper and hi‑fi prototypes",
+    "Role": "Solo project: research, concept, prototyping and testing",
+    "Methods": "Interviews, clustering, storytelling, paper and hi-fi prototypes",
     "Tools": "Figma"
   }
 }

@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────
-//  build.mjs — turns content/ + static/ into the finished site in dist/
+//  build.mjs: turns content/ + static/ into the finished site in dist/
 //  Run:  node build.mjs        (no npm install needed)
 // ─────────────────────────────────────────────────────────────
 
@@ -17,7 +17,7 @@ const PROJECTS_DIR = path.join(ROOT, 'content', 'projects');
 const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-// Allows the safe inline formatting used in JSON copy (em/strong) but escapes everything else.
+// Allows <em>/<strong> in JSON copy but escapes everything else.
 const rich = (s = '') =>
   esc(s).replace(/&lt;(\/?)(em|strong)&gt;/g, '<$1$2>');
 
@@ -174,13 +174,13 @@ function featuredCard(p) {
   const open = p.hasPage ? `<a class="card" href="${linkOf(p)}"` : `<div class="card card--static"`;
   const close = p.hasPage ? '</a>' : '</div>';
   const cta = p.hasPage
-    ? `<span class="cta">View project</span>`
-    : `<span class="cta cta--muted">Case study coming soon</span>`;
+    ? `<span class="cta">${esc(p.cta || 'View project')}</span>`
+    : `<span class="cta cta--muted">${esc(p.cta || 'Case study coming soon')}</span>`;
   const style = `--card:${colorOf(p)}`;
 
   if (!p.card || p.card.style === 'band') {
     const right = p.card?.quote
-      ? `<p class="card-quote">“${esc(p.card.quote)}”</p>`
+      ? `<p class="card-quote">"${esc(p.card.quote)}"</p>`
       : `<p class="card-summary">${rich(p.summary)}</p>`;
     return `${open} data-tags="${tagsAttr}" style="${style}" data-band>
   <div class="card-band-left">${tagRow(p)}<h2 class="card-title">${esc(p.title)}</h2></div>
@@ -216,7 +216,7 @@ ${close}`;
 // ── page shell ───────────────────────────────────────────────
 
 function head({ title, description, path: pagePath, image }) {
-  const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.role}`;
+  const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.role}`;
   const url = site.url + pagePath;
   return `<!doctype html>
 <html lang="en">
@@ -265,8 +265,7 @@ function footer() {
     </div>`);
   }
   if (site.linkedin) {
-    const handle = site.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
-    items.push(`<div class="contact-item"><span class="contact-label">LinkedIn</span><a class="contact-value" href="${esc(site.linkedin)}" rel="noopener">${esc(handle)}</a></div>`);
+    items.push(`<div class="contact-item"><span class="contact-label">LinkedIn</span><a class="contact-value" href="${esc(site.linkedin)}" rel="noopener">View my profile</a></div>`);
   }
   if (site.cv) {
     items.push(`<div class="contact-item"><span class="contact-label">CV</span><a class="contact-value" href="${esc(site.cv)}">Download PDF</a></div>`);
@@ -369,7 +368,7 @@ ${body}
 function notFoundPage() {
   return page({ title: 'Page not found', path: '/404' }, `
 <section class="intro wrap">
-  <h1>That page doesn’t exist. <span class="muted"><a href="/">Back to my work →</a></span></h1>
+  <h1>Sorry, that page doesn't exist. <span class="muted"><a href="/">Back to my work</a></span></h1>
 </section>`);
 }
 

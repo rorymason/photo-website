@@ -5,15 +5,15 @@
   "tags": ["motion"],
   "format": "Animated short",
   "color": "grey",
-  "summary": "A short animated film about protecting your hearing — every part made by me, including the music.",
-  "intro": "A short animated film with one message: protect your hearing. I made every part of it — story, set, character, rig, animation, voice and music.",
+  "summary": "A short animated film about looking after your hearing. I made every part of it, music included.",
+  "intro": "A short animated film with one message: protect your hearing. I made all of it myself, from the story and characters to the animation, voice and music.",
   "card": {
     "style": "photo",
     "image": { "src": "images/still.jpg", "alt": "Still from the animation: a character in a living room beside two large speakers" }
   },
   "hero": null,
   "facts": {
-    "Role": "Everything — story, illustration, rigging, animation, sound and music",
+    "Role": "Everything: story, illustration, rigging, animation, sound and music",
     "Tools": "Illustrator, After Effects, Premiere Pro"
   }
 }

@@ -1,7 +1,5 @@
-// ─────────────────────────────────────────────────────────────
-//  Site settings — edit these values, then rebuild.
-//  Anything left empty ('') is simply hidden on the site.
-// ─────────────────────────────────────────────────────────────
+// Site settings. Edit these values, then rebuild.
+// Anything left empty ('') is simply hidden on the site.
 
 export default {
   name: 'Rory Mason',
@@ -11,15 +9,15 @@ export default {
     'Rory Mason is an interaction designer in Berlin, designing research-led digital products.',
 
   // Homepage intro. The second line is shown in grey.
-  intro: 'I design research‑led digital products — from the first interview to a working prototype.',
+  intro: 'I design research-led digital products, from the first interview to a working prototype.',
   introMuted: 'Studying Interaction Design at CODE University in Berlin, and freelancing on brand and web.',
 
-  // Contact — shown at the bottom of every page.
-  email: 'rory.mason@code.berlin',
-  linkedin: '', // e.g. 'https://www.linkedin.com/in/your-name'
-  cv: '',       // e.g. '/files/rory-mason-cv.pdf' (put the PDF in static/files/)
+  // Contact details, shown at the bottom of every page.
+  email: 'roryelmason@outlook.com',
+  linkedin: 'https://www.linkedin.com/in/rory-mason-b450a22aa/',
+  cv: '', // e.g. '/files/rory-mason-cv.pdf' (put the PDF in static/files/)
 
-  // Discipline tags. Projects refer to these by their key (ux, research …).
+  // Discipline tags. Projects refer to these by their key (ux, research and so on).
   // The order here is the order of the filter buttons.
   tags: {
     ux:       { label: 'UX & Product',   icon: 'phone' },
