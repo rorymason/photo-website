@@ -1,0 +1,17 @@
+{
+  "title": "Rhapsody",
+  "order": 5,
+  "tags": ["brand"],
+  "format": "Identity & brand book",
+  "color": "peach",
+  "summary": "Identity for a service that helps people find music and culture events.",
+  "intro": "A brand for a fictional service that helps people discover music and culture events.",
+  "card": {
+    "style": "framed",
+    "image": { "src": "images/colour.jpg", "alt": "Rhapsody brand book page showing the Vivid Violet colour palette" }
+  },
+  "facts": {
+    "Role": "Brand identity and brand book",
+    "Tools": "Figma"
+  }
+}

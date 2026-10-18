@@ -1,0 +1,16 @@
+{
+  "title": "Photography",
+  "order": 8,
+  "section": "other",
+  "tags": ["motion"],
+  "format": "35mm film",
+  "color": "grey",
+  "summary": "Black‑and‑white film photographs from Beijing and England.",
+  "intro": "I started shooting film as a teenager in China, where developing and scanning 35mm was cheap enough to justify an old film camera. These are mostly from my last years there, plus a few from England.",
+  "card": {
+    "style": "photo",
+    "image": { "src": "images/photo-02.jpg", "alt": "Two round street mirrors reflecting a tree-lined road" }
+  },
+  "hero": null,
+  "facts": {}
+}

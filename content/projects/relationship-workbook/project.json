@@ -1,0 +1,10 @@
+{
+  "title": "Relationship workbook",
+  "order": 2,
+  "tags": ["brand", "ux"],
+  "format": "Freelance · In progress",
+  "color": "sky",
+  "summary": "Brand, website and an AI helpbot for two London psychotherapists.",
+  "card": { "style": "band" },
+  "page": false
+}

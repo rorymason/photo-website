@@ -1,0 +1,19 @@
+{
+  "title": "Meaningful listening",
+  "order": 6,
+  "tags": ["research"],
+  "format": "Research study · 7 participants",
+  "color": "mint",
+  "summary": "How music formats — streaming, vinyl, tape — shape the way people pay attention to what they hear.",
+  "intro": "My bachelor’s thesis: an exploratory design‑research study into how the format we listen on — streaming, vinyl, tape or CD — shapes whether listening feels meaningful.",
+  "card": {
+    "style": "band",
+    "quote": "How might we create a more meaningful experience around listening to recorded music?"
+  },
+  "hero": null,
+  "facts": {
+    "Type": "Bachelor’s thesis",
+    "Methods": "Literature review, semi‑structured interviews, observation, thematic analysis",
+    "Participants": "7 listeners who choose between streaming and physical formats"
+  }
+}

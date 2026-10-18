@@ -1,0 +1,22 @@
+{
+  "title": "Project name",
+  "order": 9,
+  "section": "featured",
+  "tags": ["ux"],
+  "format": "Short note on what it is, e.g. Mobile app",
+  "color": "sky",
+  "summary": "One sentence for the homepage card.",
+  "intro": "One or two sentences at the top of the project page.",
+  "card": {
+    "style": "phones",
+    "images": [
+      { "src": "images/screen-1.jpg", "alt": "Describe the screen" },
+      { "src": "images/screen-2.jpg", "alt": "Describe the screen" }
+    ]
+  },
+  "facts": {
+    "Role": "What you did",
+    "Methods": "How you did it",
+    "Tools": "What you used"
+  }
+}

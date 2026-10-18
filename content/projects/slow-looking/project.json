@@ -1,0 +1,23 @@
+{
+  "title": "Slow Looking",
+  "order": 4,
+  "tags": ["strategy", "research"],
+  "format": "Installation · Berlin Design Week",
+  "color": "lavender",
+  "summary": "An installation that asks people to slow down in front of street art — and notice more.",
+  "intro": "A group project pairing slow looking — observing art for far longer than a glance — with Berlin’s street art, shown as an installation at Berlin Design Week.",
+  "card": {
+    "style": "photo",
+    "image": { "src": "images/installation.jpg", "alt": "A visitor looking at the Slow Looking installation under purple light" }
+  },
+  "hero": {
+    "style": "photo",
+    "image": { "src": "images/installation-entrance.jpg", "alt": "Entrance to the Slow Looking installation at Berlin Design Week" }
+  },
+  "facts": {
+    "Role": "Design strategy and event planning",
+    "Team": "Students and faculty members",
+    "Methods": "Problem framing, system mapping, futures cone, storyboarding, floor plans",
+    "Shown at": "Berlin Design Week"
+  }
+}

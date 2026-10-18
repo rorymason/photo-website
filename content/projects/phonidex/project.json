@@ -1,0 +1,20 @@
+{
+  "title": "Phonidex",
+  "order": 1,
+  "tags": ["ux"],
+  "format": "iOS app",
+  "color": "rose",
+  "summary": "A turntable simulator that puts a DJ’s deck on an iPhone — designed and built in SwiftUI.",
+  "intro": "A pocket turntable: load a track from your phone and handle it the way you would on a deck — scratch the platter, set cue points and ride the pitch fader.",
+  "card": {
+    "style": "phones",
+    "images": [
+      { "src": "images/deck-placeholder.jpg", "alt": "Phonidex deck screen with the platter, cue and play buttons and pitch fader" }
+    ]
+  },
+  "facts": {
+    "Role": "Design and development",
+    "Platform": "iPhone",
+    "Built with": "SwiftUI, Xcode"
+  }
+}
