@@ -9,15 +9,15 @@
   "card": {
     "style": "phones",
     "images": [
-      { "src": "images/welcome.jpg", "alt": "Welcome screen summing up what's changed since the last visit" },
+      { "src": "images/welcome.jpg", "alt": "Welcome screen summing up what's changed since the last visit, in the group's green" },
       { "src": "images/discussion.jpg", "alt": "Meeting discussion with comments from named members" }
     ]
   },
   "hero": {
     "style": "phones",
     "images": [
-      { "src": "images/welcome.jpg", "alt": "Welcome screen summing up what's changed since the last visit" },
-      { "src": "images/meetings.jpg", "alt": "Meetings screen with topic and date filters" },
+      { "src": "images/welcome.jpg", "alt": "Welcome screen summing up what's changed since the last visit, in the group's green" },
+      { "src": "images/meetings.jpg", "alt": "Meetings screen with filters and upcoming meetings" },
       { "src": "images/discussion.jpg", "alt": "Meeting discussion with comments from named members" }
     ]
   },

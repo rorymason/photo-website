@@ -14,15 +14,15 @@ British English, natural and friendly. No em dashes, en dashes or double hyphens
 ## Related files
 - Rhapsody brand guidelines canvas: https://claude.ai/artifact/RymKUcSXeDH8HqrGby6QVW (PDF is in `content/projects/rhapsody/files/`)
 - CV doc: https://claude.ai/code/artifact/ccca31f6-6fa0-4ba5-be1a-0424bbfe3760. The site PDF was rebuilt from it as one A4 page, so it has to be re-exported whenever the doc changes.
+- Experiencing Agency app screens are drawn in code: `content/projects/experiencing-agency/mockups/render.py` writes them into `images/` (that folder isn't published). They include the changes from the case study's reflection (group colour and symbol, meetings in the main menu, linked welcome summary), which the page says.
 - Source material on Rory's Mac: Documents/portfolio (Phonidex screens, CV) and Documents/new portfolio (original Notion export).
 
 ## Open points
 1. Rhapsody: confirm or drop the v2 additions (Violet Light #B77BFF, Surface Grey #F2F2F2, shortened value names, tone of voice page, imagery page using his 35mm photos, rebuilt app screens with made-up events) and the reflection points on the case study page.
 2. Phonidex: add the demo video when it exists (a commented-out slot is at the top of `page.html`).
 3. The Jury's Out: write the full case study once the brand directions are done (currently "Case study incoming").
-4. Experiencing Agency: better mockups (could be redrawn in Figma) and the participant photo as a JPG (the HEIC wouldn't convert).
-5. Meaningful listening (thesis): one sentence per finding and a stronger image.
-6. Photography: add more photos.
-7. About page: check the draft lines.
-8. Protect Your Ears: set the Google Drive video to "Anyone with the link".
-9. Site extras: Impressum check, favicon and social share (OG) image.
+4. Meaningful listening (thesis): one sentence per finding and a stronger image.
+5. Photography: add more photos.
+6. About page: check the draft lines.
+7. Protect Your Ears: set the Google Drive video to "Anyone with the link".
+8. Site extras: Impressum check, favicon and social share (OG) image.
