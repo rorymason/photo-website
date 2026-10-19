@@ -14,7 +14,8 @@ British English, natural and friendly. No em dashes, en dashes or double hyphens
 ## Related files
 - Rhapsody brand guidelines canvas: https://claude.ai/artifact/RymKUcSXeDH8HqrGby6QVW (PDF is in `content/projects/rhapsody/files/`)
 - CV doc: https://claude.ai/code/artifact/ccca31f6-6fa0-4ba5-be1a-0424bbfe3760. The site PDF was rebuilt from it as one A4 page, so it has to be re-exported whenever the doc changes.
-- Experiencing Agency app screens are drawn in code: `content/projects/experiencing-agency/mockups/render.py` writes them into `images/` (that folder isn't published). They include the changes from the case study's reflection (group colour and symbol, meetings in the main menu, linked welcome summary), which the page says.
+- Experiencing Agency app screens: the editable versions are in the Figma file "iPhone mockups (Community) (Copy)" (https://www.figma.com/design/RY8UUaNtzwptXZvSL0GLVl), frame "Experiencing Agency (portfolio)", as components built into the kit's Space Black iPhone. The site images come from `content/projects/experiencing-agency/mockups/` (not published): `render.py` draws the screens and `compose.py` puts them into the phone frame taken from that file, writing `images/mockup-*.png`. They include the changes from the case study's reflection (group colour and symbol, meetings in the main menu, linked welcome summary), which the page says.
+- Card and hero styles `device` (one phone mockup PNG, used for Phonidex) and `devices` (a group of phones, used for Experiencing Agency) show mockups that already include the phone frame.
 - Source material on Rory's Mac: Documents/portfolio (Phonidex screens, CV) and Documents/new portfolio (original Notion export).
 
 ## Open points

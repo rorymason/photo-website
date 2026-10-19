@@ -1,25 +1,27 @@
 {
   "title": "Experiencing Agency",
   "order": 4,
-  "tags": ["ux", "research"],
+  "tags": [
+    "ux",
+    "research"
+  ],
   "format": "Mobile app",
   "color": "lavender",
   "summary": "Helping neighbourhood groups feel welcoming and easy to follow online.",
   "intro": "An app for neighbourhood action groups that helps newcomers feel welcome and keeps everyone in the loop. It grew out of two rounds of interviews and three prototypes.",
   "card": {
-    "style": "phones",
-    "images": [
-      { "src": "images/welcome.jpg", "alt": "Welcome screen summing up what's changed since the last visit, in the group's green" },
-      { "src": "images/discussion.jpg", "alt": "Meeting discussion with comments from named members" }
-    ]
+    "style": "devices",
+    "image": {
+      "src": "images/mockup-cover.png",
+      "alt": "Three iPhones showing the welcome screen, the meetings list and a meeting discussion, all in the group's green"
+    }
   },
   "hero": {
-    "style": "phones",
-    "images": [
-      { "src": "images/welcome.jpg", "alt": "Welcome screen summing up what's changed since the last visit, in the group's green" },
-      { "src": "images/meetings.jpg", "alt": "Meetings screen with filters and upcoming meetings" },
-      { "src": "images/discussion.jpg", "alt": "Meeting discussion with comments from named members" }
-    ]
+    "style": "devices",
+    "image": {
+      "src": "images/mockup-cover.png",
+      "alt": "Three iPhones showing the welcome screen, the meetings list and a meeting discussion, all in the group's green"
+    }
   },
   "facts": {
     "Role": "Solo project: research, concept, prototyping and testing",

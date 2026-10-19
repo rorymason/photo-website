@@ -30,6 +30,8 @@ To add a CV, put the PDF in `static/files/` and set `cv: '/files/your-cv.pdf'`.
      - `"phones"` with `images` (one to three phone screens)
      - `"photo"` with `image` (a photo filling the right half)
      - `"framed"` with `image` (an image with a shadow, like a brand book page)
+     - `"device"` with `image` (a transparent PNG mockup that already includes the phone frame)
+     - `"devices"` with `image` (the same, for a wider group of phones)
      - `"band"` for no image, just a slim text row (add `"quote"` to show a quote on the right)
    - `hero`: optional, the big image at the top of the project page. It defaults to the
      card visual. Set it to `null` for none.

@@ -9,17 +9,11 @@
   "summary": "A turntable simulator that puts a DJ's deck on your iPhone. Designed and built in SwiftUI.",
   "intro": "A turntable in your pocket. Load a track from your phone and play it like you would on a real deck: scratch the platter, set cue points and ride the pitch fader.",
   "card": {
-    "style": "phones",
-    "images": [
-      {
-        "src": "images/deck.jpg",
-        "alt": "Phonidex deck playing a track, with the platter, waveform, pitch fader and cue and pause buttons"
-      },
-      {
-        "src": "images/waveform.jpg",
-        "alt": "Phonidex with the waveform zoomed in and the pitch display switched to percentage"
-      }
-    ]
+    "style": "device",
+    "image": {
+      "src": "images/mockup-front.png",
+      "alt": "Phonidex on an iPhone, playing a track with the platter, waveform, BPM display, pitch fader and cue and pause buttons"
+    }
   },
   "facts": {
     "Role": "Design and development",
@@ -28,20 +22,10 @@
     "Status": "Working prototype"
   },
   "hero": {
-    "style": "phones",
-    "images": [
-      {
-        "src": "images/waveform.jpg",
-        "alt": "Phonidex with the waveform zoomed in and the pitch display switched to percentage"
-      },
-      {
-        "src": "images/deck.jpg",
-        "alt": "Phonidex deck playing a track, with the platter, waveform, pitch fader and cue and pause buttons"
-      },
-      {
-        "src": "images/set-bpm.jpg",
-        "alt": "Set BPM dialogue with a typed tempo of 126 and an 8-tap BPM option"
-      }
-    ]
+    "style": "device",
+    "image": {
+      "src": "images/mockup-front.png",
+      "alt": "Phonidex on an iPhone, playing a track with the platter, waveform, BPM display, pitch fader and cue and pause buttons"
+    }
   }
 }

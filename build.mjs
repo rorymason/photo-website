@@ -164,6 +164,8 @@ function visual(p, v, context) {
   if (v.style === 'phones') return phones(p, v.images || [], `${context}-visual visual--phones`, true);
   if (v.style === 'photo') return single(p, v.image, `${context}-visual visual--photo`, true);
   if (v.style === 'framed') return single(p, v.image, `${context}-visual visual--framed`, true);
+  if (v.style === 'device') return single(p, v.image, `${context}-visual visual--device`, true);
+  if (v.style === 'devices') return single(p, v.image, `${context}-visual visual--devices`, true);
   return '';
 }
 

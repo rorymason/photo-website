@@ -1,6 +1,9 @@
-"""Renders the Experiencing Agency app screens (375x812 @2x) into ../images with headless Chromium.
-Run from this folder: python3 render.py ../images   (needs Python Playwright with Chromium, plus Inter and Lora installed).
-This folder is not published; the build only copies images/ and files/.
+"""Step 1 of 2: renders the Experiencing Agency app screens (376x814 @2x, the screen size of the
+iPhone frame in the Figma mockup kit) into a folder as PNGs, using headless Chromium.
+The editable versions of these screens live in Rory's Figma file "iPhone mockups (Community) (Copy)",
+frame "Experiencing Agency (portfolio)". Keep the two in step if you change copy here.
+Run from this folder: python3 render.py screens   (needs Python Playwright with Chromium, plus Inter and Lora).
+Then run compose.py. This folder is not published; the build only copies images/ and files/.
 """
 import sys, pathlib
 from playwright.sync_api import sync_playwright
@@ -16,10 +19,10 @@ CSS = """
   --zahra: #F2D3C2; --jan: #CFDCEB; --agatha: #E8DDB5;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { width: 375px; height: 812px; overflow: hidden; }
+html, body { width: 376px; height: 814px; overflow: hidden; }
 body { font-family: Inter, sans-serif; color: var(--ink); background: var(--paper);
   -webkit-font-smoothing: antialiased; font-feature-settings: "cv11", "ss03"; }
-.screen { position: relative; width: 375px; height: 812px; display: flex; flex-direction: column; }
+.screen { position: relative; width: 376px; height: 814px; display: flex; flex-direction: column; }
 
 /* Group header: the group's colour and symbol on every screen */
 .group { background: var(--linden); color: var(--white); padding: 0 20px 16px; }
@@ -276,10 +279,10 @@ SCREENS = {'welcome': welcome, 'meetings': meetings, 'discussion': discussion,
 
 with sync_playwright() as p:
     b = p.chromium.launch()
-    pg = b.new_page(viewport={'width': 375, 'height': 812}, device_scale_factor=2)
+    pg = b.new_page(viewport={'width': 376, 'height': 814}, device_scale_factor=2)
     for name, html in SCREENS.items():
         f = HERE / f'{name}.html'; f.write_text(html)
         pg.goto(f.as_uri()); pg.wait_for_timeout(250)
-        pg.screenshot(path=str(OUT / f'{name}.jpg'), type='jpeg', quality=88)
+        pg.screenshot(path=str(OUT / f'{name}.png'), type='png')
         print('rendered', name)
     b.close()
